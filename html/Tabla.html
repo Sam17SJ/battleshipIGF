@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="./index.css">
+    <title>Battleship</title>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script type="text/javascript" src="jQueryRotate.js"></script>
+    <script>
+        function DragDrop(drag, drop)
+        {
+            var drag = document.getElementById(drag);
+            var drop = document.getElementById(drop);
+
+            drag.ondragstart = function(e)
+            {
+                //Guardamos el id del elemento para transferirlo al elemento drop
+                //Content es una clave que nos permtira acceder al valor asignado
+                e.dataTransfer.setData("content", e.target.id);
+            }
+            drop.ondragover = function(e)
+            {
+                //Cancelar el evento que impide que podamos soltar el elemento drag
+                e.preventDefault();
+            }
+            drop.ondrop = function(e)
+            {
+                //Obtenemos los datos a traves de la clave content, en este caso 
+                var id = e.dataTransfer.getData("content");
+                e.target.appendChild(document.getElementById(id));
+            }
+        }
+        window.onload = function()
+        {
+            for(var i=0; i<10;i++){
+                for(var j=0; j<10;j++){
+                    DragDrop("drag0","drop"+i.toString()+j.toString());
+                    DragDrop("drag1","drop"+i.toString()+j.toString());
+                }
+            }
+        }
+    </script>
+</head>
+
+<body id="body">
+<div id="drag0" dragable="true" class="Barco1"></div>
+<div id="drag1" dragable="true" class="Barco2" ></div>
+
+
+    <div id="boards">
+        <table id="board1s">
+            <tr class="row">
+                <td class="1">
+                    <div  id="drop00" class="drop">
+
+                    </div>
+                </td>
+                <td class="2">
+                    <div  id="drop01" class="drop">
+
+                    </div>
+                </td>
+                <td class="3">
+                    <div  id="drop02" class="drop">
+
+                    </div>
+                </td>
+                <td class="4">
+                    <div  id="drop03" class="drop">
+
+                    </div>
+                </td>
+                <td class="5">
+                    <div  id="drop04" class="drop">
+
+                    </div>
+                </td>
+                <td class="6">
+                    <div  id="drop05" class="drop">
+
+                    </div>
+                </td>
+                <td class="7">
+                    <div  id="drop06" class="drop">
+
+                    </div>
+                </td>
+                <td class="8">
+                    <div  id="drop07" class="drop">
+
+                    </div>
+                </td>
+                <td class="9">
+                    <div  id="drop08" class="drop">
+
+                    </div>
+                </td>
+                <td class="10">
+                    <div  id="drop09" class="drop">
+
+                    </div>
+                </td>
+            </tr>
+            <tr class="row2">
+                <td class="1">
+                    <div  id="drop10" class="drop">
+
+                    </div>
+                </td>
+                <td class="2">
+                    <div  id="drop11" class="drop">
+
+                    </div>
+                </td>
+                <td class="3">
+                    <div  id="drop12" class="drop">
+
+                    </div>
+                </td>
+                <td class="4">
+                    <div  id="drop13" class="drop">
+
+                    </div>
+                </td>
+                <td class="5">
+                    <div  id="drop14" class="drop">
+
+                    </div>
+                </td>
+                <td class="6">
+                    <div  id="drop15" class="drop">
+
+                    </div>
+                </td>
+                <td class="7">
+                    <div  id="drop16" class="drop">
+
+                    </div>
+                </td>
+                <td class="8">
+                    <div  id="drop17" class="drop">
+
+                    </div>
+                </td>
+                <td class="9">
+                    <div  id="drop18" class="drop">
+
+                    </div>
+                </td>
+                <td class="10">
+                    <div  id="drop19" class="drop">
+
+                    </div>
+                </td>
+            </tr>
+            <tr class="row3">
+                <td class="1">
+                    <div  id="drop20" class="drop">
+
+                    </div>
+                </td>
+                <td class="2">
+                    <div  id="drop21" class="drop">
+
+                    </div>
+                </td>
+                <td class="3">
+                    <div  id="drop22" class="drop">
+
+                    </div>
+                </td>
+                <td class="4">
+                    <div  id="drop23" class="drop">
+
+                    </div>
+                </td>
+                <td class="5">
+                    <div  id="drop24" class="drop">
+
+                    </div>
+                </td>
+                <td class="6">
+                    <div  id="drop25" class="drop">
+
+                    </div>
+                </td>
+                <td class="7">
+                    <div  id="drop26" class="drop">
+
+                    </div>
+                </td>
+                <td class="8">
+                    <div  id="drop27" class="drop">
+
+                    </div>
+                </td>
+                <td class="9">
+                    <div  id="drop28" class="drop">
+
+                    </div>
+                </td>
+                <td class="10">
+                    <div  id="drop29" class="drop">
+
+                    </div>
+                </td>
+            </tr>
+            <tr class="row4">
+                <td class="1">
+                    <div  id="drop30" class="drop">
+
+                    </div>
+                </td>
+                <td class="2">
+                    <div  id="drop31" class="drop">
+
+                    </div>
+                </td>
+                <td class="3">
+                    <div  id="drop32" class="drop">
+
+                    </div>
+                </td>
+                <td class="4">
+                    <div  id="drop33" class="drop">
+
+                    </div>
+                </td>
+                <td class="5">
+                    <div  id="drop34" class="drop">
+
+                    </div>
+                </td>
+                <td class="6">
+                    <div  id="drop35" class="drop">
+
+                    </div>
+                </td>
+                <td class="7">
+                    <div  id="drop36" class="drop">
+
+                    </div>
+                </td>
+                <td class="8">
+                    <div  id="drop37" class="drop">
+
+                    </div>
+                </td>
+                <td class="9">
+                    <div  id="drop38" class="drop">
+
+                    </div>
+                </td>
+                <td class="10">
+                    <div  id="drop39" class="drop">
+
+                    </div>
+                </td>
+            </tr>
+            <tr class="row5">
+                <td class="1">
+                    <div  id="drop40" class="drop">
+
+                    </div>
+                </td>
+                <td class="2">
+                    <div  id="drop41" class="drop">
+
+                    </div>
+                </td>
+                <td class="3">
+                    <div  id="drop42" class="drop">
+
+                    </div>
+                </td>
+                <td class="4">
+                    <div  id="drop43" class="drop">
+
+                    </div>
+                </td>
+                <td class="5">
+                    <div  id="drop44" class="drop">
+
+                    </div>
+                </td>
+                <td class="6">
+                    <div  id="drop45" class="drop">
+
+                    </div>
+                </td>
+                <td class="7">
+                    <div  id="drop46" class="drop">
+
+                    </div>
+                </td>
+                <td class="8">
+                    <div  id="drop47" class="drop">
+
+                    </div>
+                </td>
+                <td class="9">
+                    <div  id="drop48" class="drop">
+
+                    </div>
+                </td>
+                <td class="10">
+                    <div  id="drop49" class="drop">
+
+                    </div>
+                </td>
+            </tr>
+            <tr class="row6">
+                <td class="1">
+                    <div  id="drop50" class="drop">
+
+                    </div>
+                </td>
+                <td class="2">
+                    <div  id="drop51" class="drop">
+
+                    </div>
+                </td>
+                <td class="3">
+                    <div  id="drop52" class="drop">
+
+                    </div>
+                </td>
+                <td class="4">
+                    <div  id="drop53" class="drop">
+
+                    </div>
+                </td>
+                <td class="5">
+                    <div  id="drop54" class="drop">
+
+                    </div>
+                </td>
+                <td class="6">
+                    <div  id="drop55" class="drop">
+
+                    </div>
+                </td>
+                <td class="7">
+                    <div  id="drop56" class="drop">
+
+                    </div>
+                </td>
+                <td class="8">
+                    <div  id="drop57" class="drop">
+
+                    </div>
+                </td>
+                <td class="9">
+                    <div  id="drop58" class="drop">
+
+                    </div>
+                </td>
+                <td class="10">
+                    <div  id="drop59" class="drop">
+
+                    </div>
+                </td>
+            </tr>
+            <tr class="row7">
+                <td class="1">
+                    <div  id="drop60" class="drop">
+
+                    </div>
+                </td>
+                <td class="2">
+                    <div  id="drop61" class="drop">
+
+                    </div>
+                </td>
+                <td class="3">
+                    <div  id="drop62" class="drop">
+
+                    </div>
+                </td>
+                <td class="4">
+                    <div  id="drop63" class="drop">
+
+                    </div>
+                </td>
+                <td class="5">
+                    <div  id="drop64" class="drop">
+
+                    </div>
+                </td>
+                <td class="6">
+                    <div  id="drop65" class="drop">
+
+                    </div>
+                </td>
+                <td class="7">
+                    <div  id="drop66" class="drop">
+
+                    </div>
+                </td>
+                <td class="8">
+                    <div  id="drop67" class="drop">
+
+                    </div>
+                </td>
+                <td class="9">
+                    <div  id="drop68" class="drop">
+
+                    </div>
+                </td>
+                <td class="10">
+                    <div  id="drop69" class="drop">
+
+                    </div>
+                </td>
+            </tr>
+            <tr class="row8">
+                <td class="1">
+                    <div  id="drop70" class="drop">
+
+                    </div>
+                </td>
+                <td class="2">
+                    <div  id="drop71" class="drop">
+
+                    </div>
+                </td>
+                <td class="3">
+                    <div  id="drop72" class="drop">
+
+                    </div>
+                </td>
+                <td class="4">
+                    <div  id="drop73" class="drop">
+
+                    </div>
+                </td>
+                <td class="5">
+                    <div  id="drop74" class="drop">
+
+                    </div>
+                </td>
+                <td class="6">
+                    <div  id="drop75" class="drop">
+
+                    </div>
+                </td>
+                <td class="7">
+                    <div  id="drop76" class="drop">
+
+                    </div>
+                </td>
+                <td class="8">
+                    <div  id="drop77" class="drop">
+
+                    </div>
+                </td>
+                <td class="9">
+                    <div  id="drop78" class="drop">
+
+                    </div>
+                </td>
+                <td class="10">
+                    <div  id="drop79" class="drop">
+
+                    </div>
+                </td>
+            </tr>
+            <tr class="row9">
+                <td class="1">
+                    <div  id="drop80" class="drop">
+
+                    </div>
+                </td>
+                <td class="2">
+                    <div  id="drop81" class="drop">
+
+                    </div>
+                </td>
+                <td class="3">
+                    <div  id="drop82" class="drop">
+
+                    </div>
+                </td>
+                <td class="4">
+                    <div  id="drop83" class="drop">
+
+                    </div>
+                </td>
+                <td class="5">
+                    <div  id="drop84" class="drop">
+
+                    </div>
+                </td>
+                <td class="6">
+                    <div  id="drop85" class="drop">
+
+                    </div>
+                </td>
+                <td class="7">
+                    <div  id="drop86" class="drop">
+
+                    </div>
+                </td>
+                <td class="8">
+                    <div  id="drop87" class="drop">
+
+                    </div>
+                </td>
+                <td class="9">
+                    <div  id="drop88" class="drop">
+
+                    </div>
+                </td>
+                <td class="10">
+                    <div  id="drop89" class="drop">
+
+                    </div>
+                </td>
+            </tr>
+            <tr class="row10">
+                <td class="1">
+                    <div  id="drop90" class="drop">
+
+                    </div>
+                </td>
+                <td class="2">
+                    <div  id="drop91" class="drop">
+
+                    </div>
+                </td>
+                <td class="3">
+                    <div  id="drop92" class="drop">
+
+                    </div>
+                </td>
+                <td class="4">
+                    <div  id="drop93" class="drop">
+
+                    </div>
+                </td>
+                <td class="5">
+                    <div  id="drop94" class="drop">
+
+                    </div>
+                </td>
+                <td class="6">
+                    <div  id="drop95" class="drop">
+
+                    </div>
+                </td>
+                <td class="7">
+                    <div  id="drop96" class="drop">
+
+                    </div>
+                </td>
+                <td class="8">
+                    <div  id="drop97" class="drop">
+
+                    </div>
+                </td>
+                <td class="9">
+                    <div  id="drop98" class="drop">
+
+                    </div>
+                </td>
+                <td class="10">
+                    <div  id="drop99" class="drop">
+
+                    </div>
+                </td>
+            </tr>
+        </table>
+
+        <form method="POST">
+            <h4>Nave 1</h4><br>
+            <input name="id" value=1>
+            Cordenada X:<br>
+            <input type="number" name="X" >
+            <br>
+            Cordenada Y:<br>
+            <input type="number" name="Y" >
+            <br><br>
+            <input type="submit" value="Submit">
+        </form>
+<!-- 
+        <table id="board1s">
+            <tr class="row1">
+                <td class="1"></td>
+                <td class="2"></td>
+                <td class="3"></td>
+                <td class="4"></td>
+                <td class="5"></td>
+                <td class="6"></td>
+                <td class="7"></td>
+                <td class="8"></td>
+                <td class="9"></td>
+                <td class="10"></td>
+            </tr>
+            <tr class="row2">
+                <td class="1"></td>
+                <td class="2"></td>
+                <td class="3"></td>
+                <td class="4"></td>
+                <td class="5"></td>
+                <td class="6"></td>
+                <td class="7"></td>
+                <td class="8"></td>
+                <td class="9"></td>
+                <td class="10"></td>
+            </tr>
+            <tr class="row3">
+                <td class="1"></td>
+                <td class="2"></td>
+                <td class="3"></td>
+                <td class="4"></td>
+                <td class="5"></td>
+                <td class="6"></td>
+                <td class="7"></td>
+                <td class="8"></td>
+                <td class="9"></td>
+                <td class="10"></td>
+            </tr>
+            <tr class="row4">
+                <td class="1"></td>
+                <td class="2"></td>
+                <td class="3"></td>
+                <td class="4"></td>
+                <td class="5"></td>
+                <td class="6"></td>
+                <td class="7"></td>
+                <td class="8"></td>
+                <td class="9"></td>
+                <td class="10"></td>
+            </tr>
+            <tr class="row5">
+                <td class="1"></td>
+                <td class="2"></td>
+                <td class="3"></td>
+                <td class="4"></td>
+                <td class="5"></td>
+                <td class="6"></td>
+                <td class="7"></td>
+                <td class="8"></td>
+                <td class="9"></td>
+                <td class="10"></td>
+            </tr>
+            <tr class="row6">
+                <td class="1"></td>
+                <td class="2"></td>
+                <td class="3"></td>
+                <td class="4"></td>
+                <td class="5"></td>
+                <td class="6"></td>
+                <td class="7"></td>
+                <td class="8"></td>
+                <td class="9"></td>
+                <td class="10"></td>
+            </tr>
+            <tr class="row7">
+                <td class="1"></td>
+                <td class="2"></td>
+                <td class="3"></td>
+                <td class="4"></td>
+                <td class="5"></td>
+                <td class="6"></td>
+                <td class="7"></td>
+                <td class="8"></td>
+                <td class="9"></td>
+                <td class="10"></td>
+            </tr>
+            <tr class="row8">
+                <td class="1"></td>
+                <td class="2"></td>
+                <td class="3"></td>
+                <td class="4"></td>
+                <td class="5"></td>
+                <td class="6"></td>
+                <td class="7"></td>
+                <td class="8"></td>
+                <td class="9"></td>
+                <td class="10"></td>
+            </tr>
+            <tr class="row9">
+                <td class="1"></td>
+                <td class="2"></td>
+                <td class="3"></td>
+                <td class="4"></td>
+                <td class="5"></td>
+                <td class="6"></td>
+                <td class="7"></td>
+                <td class="8"></td>
+                <td class="9"></td>
+                <td class="10"></td>
+            </tr>
+            <tr class="row10">
+                <td class="1"></td>
+                <td class="2"></td>
+                <td class="3"></td>
+                <td class="4"></td>
+                <td class="5"></td>
+                <td class="6"></td>
+                <td class="7"></td>
+                <td class="8"></td>
+                <td class="9"></td>
+                <td class="10"></td>
+            </tr>
+        </table>
+    </div>
+ -->
+<!--     <button id="placeShips">Place Ships</button> -->
+
+<!--     <script src="indexPage.js"></script> -->
+</body>
+
+</html>

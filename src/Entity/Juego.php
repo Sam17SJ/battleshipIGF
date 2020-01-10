@@ -27,10 +27,16 @@ class Juego
     private $ganador;
 
     /**
-     * @ORM\OneToOne(targetEntity="App\Entity\User", cascade={"persist", "remove"})
+     * @ORM\ManyToOne(targetEntity="App\Entity\User", cascade={"persist", "remove"})
      * @ORM\JoinColumn(nullable=false)
      */
     private $jugador1;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\User")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $jugador2;
 
     public function getId(): ?int
     {
@@ -69,6 +75,18 @@ class Juego
     public function setJugador1(User $jugador1): self
     {
         $this->jugador1 = $jugador1;
+
+        return $this;
+    }
+
+    public function getJugador2(): ?User
+    {
+        return $this->jugador2;
+    }
+
+    public function setJugador2(?User $jugador2): self
+    {
+        $this->jugador2 = $jugador2;
 
         return $this;
     }

@@ -29,7 +29,7 @@ class BarcoController extends FOSRestController
      public function getBarcos()
      {
          $repository = $this->getDoctrine()->getRepository(Barco::class);
-         $barcos = $repository->findall();
+         $barcos= $repository->findall();
          return $this->handleView($this->view($barcos));
      }
 

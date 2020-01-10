@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <meta charset="utf-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+    <body>
+
+        <div ng-app="miApp" ng-controller="miControlador">
+            <table style="border: 1;">
+                <tr ng-repeat="x in barcos">
+                    <td>{{x.id}}</td>
+                    <td>{{x.nombre}}</td>
+                    <td>{{x._tamanio}}</td>
+                </tr>
+            </table>
+        </div>
+        <script type="text/javascript">
+            var app = angular.module('miApp',[]);
+            
+            app.controller('miControlador', function($scope, $http){
+                var req= {
+                    method: 'GET',
+                    url: "http://127.0.0.1:8000/api/barco/barcos",
+                    headers:{
+                        'Content-Type':'application/json',
+                        'Authorization':'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpYXQiOjE1NzgwNzYxMzMsImV4cCI6MTU3ODA3OTczMywicm9sZXMiOlsiUk9MRV9VU0VSIl0sInVzZXJuYW1lIjoiVXN1YXJpbzIifQ.iDkVPV8XIDqkYPGgSjgBHaFSAbAq80HMf44nEvtEQMZGWpZXfSIbk1aQXdvh6QTtLBu89T1zPxGJerjYff5OX4NUxPa5txlaL0tpUR46TFgrG-YJO7PS3MHXmRpmi4osEhaFaZVWIlCQfvuyaNr1Wd-j_NiVO9EEvK7tmo5JtHa-GEzMx7DMzRkcNBsxhsA1brM-WLwvqoxx_Wm0kvUBea8MtrV2k2l4-jzWD1dmhO6zhm4ljBnwpdt-9IwzwYv0OQzlYXDkBvLrzxvMrvqRhkE-lRQYL4LzqNSeFnpXnP3hgsuAKURQ_EUA_rJiMG1A63HeOJPzT8gx7Gmg2xzsQUg0Yx6E5z3aUtxLP4SJ7Qlcu-W1eH6dJte140GLUDaicy8yCLU-n7GB9_QyErNU7oS2DzmMlstqQ-5BB8iSobaNSMUTi9HudAmqTxau00pQETMgWSQtb5R8UZXLH38xalWwEWjKCYPopTHVemwAOwpX7zYw57xlEl8vBTnXv3dlnKx5sj1aMT2OIsWz9-AtjDFxQTHaU_khwqc-rfnpxcA6IcJ6zY3_PX1ArLThGjFGk9hrw4FWiHgUhbIWw7ldm-HM6LUkx13xo1hu_qdn_ozW5oyWEAuk6NG3vpluwScB9FFUGXoAPTkUxG8j2jWT__BKcUqDnXSPleMSkUUtMe0'
+                    },
+                    data: {test: 'test'}
+                }
+                $http(req)
+                .then(function(response){
+                    $scope.barcos = response.data;});
+            });
+        </script>
+    </body>
+</html>

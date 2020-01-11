@@ -171,7 +171,7 @@ class JuegoController extends AbstractController
         $x =$request->request->get("X");
         $y =$request->request->get("Y");
         $responde = 0;
-        $aux;
+        $aux=10;
         if ($grid[$x][$y]==0)
         {
             $responde = 0;
@@ -186,8 +186,11 @@ class JuegoController extends AbstractController
             }
             else $responde = -1;
         }
+        error_log("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+        error_log($aux);
         $b=true;
-        $c=false;
+        $c=true;
+        error_log("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
         for($i=0;$i<10;$i++){
             for($j=0;$j<10;$j++)
             {
@@ -195,16 +198,17 @@ class JuegoController extends AbstractController
                 {
                     $b=false;
                 }
-                if($grid[$i][$j]==$aux)
+                if($grid[$i][$j]==$aux )
                 {
-                    $c=true;
+                    error_log($grid[$i][$j]);
+                    $c=false;
                 }
             }      
         }
         $turno= $juego->getTurnos();
         $turno++;
         $juego->setTurnos($turno);
-        if($c){
+        if($c && $aux!=10){
             $responde =5;
         }
         if($b)
